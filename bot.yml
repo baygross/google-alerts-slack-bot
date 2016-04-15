@@ -5,10 +5,10 @@ description: A simple Ruby bot for subscribing to and managing Google Alerts wit
 config:
   - name: GMAIL_USER
     type: text
-    global:true
+    global: true
   - name: GMAIL_PASS
     type: secret
-    global:true
+    global: true
 #screenshots:
 #  - screenshot: resources/screenshot1.png
 #  - screenshot: resources/screenshot2.jpg
