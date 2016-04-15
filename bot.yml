@@ -7,7 +7,7 @@ config:
     type: text
     global: true
   - name: GMAIL_PASS
-    type: secret
+    type: text
     global: true
 #screenshots:
 #  - screenshot: resources/screenshot1.png
