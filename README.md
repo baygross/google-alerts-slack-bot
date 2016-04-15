@@ -4,10 +4,10 @@ Here lives a slackbot to control google-alerts!
 The goal was to integrate with the /feed functionality in Slack native, but that got confusing so for now we just subscribe by email.
 
 Usage:
-  > bot hi
-  > bot add oscar health
-  > bot remove oscar health
-  > bot list
+  bot hi
+  bot add oscar health
+  bot remove oscar health
+  bot list
 
 
 ### Assumptions
@@ -35,21 +35,21 @@ If you have linked your local repo with the Beep Boop service (check [here](http
 
 #### Misc Docker Commands
 // add this to .bash_profile so each shell can talk to daemon VM
-eval "$(docker-machine env default)"
+  eval "$(docker-machine env default)"
 
 // check if daemon is running
-docker-machine ls
+  docker-machine ls
 
 // run daemon if not
-docker-machine create --driver virtualbox default
+  docker-machine create --driver virtualbox default
 
 // status
-docker images
-docker ps -a 
+  docker images
+  docker ps -a 
 
 // stop and delete all containers
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
+  docker stop $(docker ps -a -q)
+  docker rm $(docker ps -a -q)
 
 // mount with volume for live code development
-docker run --rm -it -e SLACK_TOKEN={KEY} GMAIL_USER={UNAME} GMAIL_PASS={PASS} -v {PWD_ABSOLUTE_PATH/app}:/app ga-bot
+  docker run --rm -it -e SLACK_TOKEN={KEY} GMAIL_USER={UNAME} GMAIL_PASS={PASS} -v {PWD_ABSOLUTE_PATH/app}:/app ga-bot

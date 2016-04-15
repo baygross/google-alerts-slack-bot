@@ -31,7 +31,10 @@ def init
   puts "debugging"
   puts ENV['GMAIL_USER']
   puts ENV['GMAIL_PASS']
+  p @GA_manager
+  p @GA_manager.alerts
   puts "----"
+ 
   
   @alert_cache = @GA_manager.alerts
   
