@@ -1,6 +1,13 @@
 ## Overview
-TODO: desc
-TODO: commands and examples
+Here lives a slackbot to control google-alerts!
+
+The goal was to integrate with the /feed functionality in Slack native, but that got confusing so for now we just subscribe by email.
+
+Usage:
+  > bot hi
+  > bot add oscar health
+  > bot remove oscar health
+  > bot list
 
 
 ### Assumptions
@@ -9,7 +16,7 @@ TODO: commands and examples
 
 * You have a slackbot API key, see [here](https://my.slack.com/services/new/bot)
 * You have Docker installed locally, see [here](https://docs.docker.com/mac/)
-
+* You have a Google account w/o 2-factor you can use for Google Alerts.
 
 ### Background Reading
 [Beep Boop](https://beepboophq.com/docs/article/overview)
@@ -18,8 +25,8 @@ TODO: commands and examples
 
 
 ### Run locally in Docker
-	docker build -t galert-slackbot .
-	docker run --rm -it -e SLACK_TOKEN=<YOUR SLACK API TOKEN> galert-slackbot
+	docker build -t ga-slackbot .
+	docker run --rm -it -e SLACK_TOKEN={KEY} GMAIL_USER={UNAME} GMAIL_PASS={PASS} ga-slackbot
   
   
 ### Run in BeepBoop
@@ -36,9 +43,13 @@ docker-machine ls
 // run daemon if not
 docker-machine create --driver virtualbox default
 
-// stop and delete containers
+// status
+docker images
+docker ps -a 
+
+// stop and delete all containers
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
-// mount with volume for live code
-docker run --rm -it -e SLACK_TOKEN={KEY} -v /Users/baygross/desktop/google-alerts-slack-bot/app:/app ga-bot
+// mount with volume for live code development
+docker run --rm -it -e SLACK_TOKEN={KEY} GMAIL_USER={UNAME} GMAIL_PASS={PASS} -v {PWD_ABSOLUTE_PATH/app}:/app ga-bot
