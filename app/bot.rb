@@ -28,6 +28,11 @@ def init
 
   # Setup GA
   @GA_manager = Galerts::Manager.new(ENV['GMAIL_USER'], ENV['GMAIL_PASS'])
+  puts "debugging"
+  puts ENV['GMAIL_USER']
+  puts ENV['GMAIL_PASS']
+  puts "----"
+  
   @alert_cache = @GA_manager.alerts
   
   # Setup message hooks
