@@ -69,7 +69,7 @@ def handleMessage( data )
     
    #------- ADD -------------------------------------------
    when /^bot add / then
-     c = data.text.slice(8..-1)
+     c = data.text.slice(8..-1).gsub!(/[^0-9A-Za-z]/, '')
      return false if c == ""
      
      if @alert_cache.find { |a| a.query == c }
@@ -94,7 +94,7 @@ def handleMessage( data )
       
    #------- REMOVE ----------------------------------------
    when /^bot remove / then
-     c = data.text.slice(11..-1)
+     c = data.text.slice(11..-1).gsub!(/[^0-9A-Za-z]/, '')
      return false if c == ""
      
      a = @alert_cache.find { |a| a.query == c }
